@@ -32,30 +32,23 @@ public class StudentRest {
     @Path("getall")
     @GET
     public Response getAllStudents() {
-        try {
+        String responseIfEmpty = "{\"Error\": \"No students in list.\"}";
             List<Student> foundStudents = studentService.getAllStudents();
             if (foundStudents == null || foundStudents.isEmpty()) {
-                return Response.status(Response.Status.NO_CONTENT).type(MediaType.APPLICATION_JSON).build();
+                throw new WebApplicationException(Response.status(Response.Status.BAD_REQUEST).entity(responseIfEmpty).type(MediaType.APPLICATION_JSON).build());
             }
             return Response.ok(foundStudents).build();
-        } catch (WebApplicationException w) {
-            return Response.status(Response.Status.BAD_REQUEST).type(MediaType.APPLICATION_JSON).build();
-        }
     }
 
     @Path("query")
     @GET
     public Response getStudentByLastName(@QueryParam("lastname") String lastname) {
         String responseIfEmpty = "{\"Error\": \"No student with that last name was found.\"}";
-        try {
             List<Student> foundStudents = studentService.getStudentByLastname(lastname);
             if (foundStudents == null || foundStudents.isEmpty()) {
-                throw new WebApplicationException(Response.status(Response.Status.NO_CONTENT).entity(responseIfEmpty).type(MediaType.APPLICATION_JSON).build());
+                throw new WebApplicationException(Response.status(Response.Status.BAD_REQUEST).entity(responseIfEmpty).type(MediaType.APPLICATION_JSON).build());
             }
             return Response.ok(foundStudents).build();
-        } catch (WebApplicationException w){
-            return Response.status(Response.Status.BAD_REQUEST).entity(responseIfEmpty).type(MediaType.APPLICATION_JSON).build();
-        }
     }
 
     @Path("")

@@ -11,7 +11,7 @@ public class Teacher {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long teacher_id;
 
     @NotEmpty
     @NotNull
@@ -31,12 +31,13 @@ public class Teacher {
     }
     public Teacher() {}
 
-    public Long getId() {
-        return id;
+
+    public Long getTeacher_id() {
+        return teacher_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTeacher_id(Long teacher_id) {
+        this.teacher_id = teacher_id;
     }
 
     public String getFirstname() {

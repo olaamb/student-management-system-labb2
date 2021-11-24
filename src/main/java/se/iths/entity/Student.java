@@ -1,5 +1,6 @@
 package se.iths.entity;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -78,6 +79,7 @@ public class Student {
         this.phonenumber = phonenumber;
     }
 
+    @JsonbTransient
     public List<Subject> getSubjects() {
         return subjects;
     }

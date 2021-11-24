@@ -20,7 +20,7 @@ public class TeacherRest {
     @Inject
     TeacherService teacherService;
 
-    @Path("createteacher")
+    @Path("")
     @POST
     public Response createTeacher(Teacher teacher) {
         try {

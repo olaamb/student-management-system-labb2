@@ -19,7 +19,7 @@ public class SubjectRest {
     SubjectService subjectService;
 
 
-    @Path("createsubject")
+    @Path("")
     @POST
     public Response createSubject(Subject subject) {
         try {
@@ -41,7 +41,7 @@ public class SubjectRest {
         return Response.ok(foundSubjects).build();
     }
 
-    @Path("querysubject")
+    @Path("query")
     @GET
     public Response getAllStudentsInSubject(@QueryParam("subjectname") String subjectname) {
         String responseIfEmpty = "{\"Error\": \"No student with that last name was found.\"}";

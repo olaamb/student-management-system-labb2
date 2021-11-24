@@ -18,7 +18,6 @@ public class StudentService {
         return student;
     }
 
-    //JOBBA PÅ DENNA, HÄMTA {lastName}????
     public List<Student> getAllStudents(){
         return entityManager.createQuery("SELECT i from Student i", Student.class).getResultList();
     }
@@ -45,4 +44,6 @@ public class StudentService {
         Student foundStudent = entityManager.find(Student.class, id);
         entityManager.remove(foundStudent);
     }
+
+
 }

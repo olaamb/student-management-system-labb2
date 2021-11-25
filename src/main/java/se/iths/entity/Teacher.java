@@ -1,5 +1,6 @@
 package se.iths.entity;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -31,6 +32,11 @@ public class Teacher {
     }
     public Teacher() {}
 
+    public void addSubject(Subject subject){
+        subjects.add(subject);
+        subject.setTeacher(this);
+    }
+
 
     public Long getTeacher_id() {
         return teacher_id;
@@ -56,6 +62,7 @@ public class Teacher {
         this.lastname = lastname;
     }
 
+    @JsonbTransient
     public List<Subject> getSubjects() {
         return subjects;
     }

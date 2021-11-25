@@ -2,6 +2,7 @@ package se.iths.rest;
 
 
 import se.iths.entity.Student;
+import se.iths.exception.ListEmptyException;
 import se.iths.service.StudentService;
 
 import javax.inject.Inject;
@@ -43,10 +44,9 @@ public class StudentRest {
     @Path("query")
     @GET
     public Response getStudentByLastName(@QueryParam("lastname") String lastname) {
-        String responseIfEmpty = "{\"Error\": \"No student with that last name was found.\"}";
             List<Student> foundStudents = studentService.getStudentByLastname(lastname);
             if (foundStudents == null || foundStudents.isEmpty()) {
-                throw new WebApplicationException(Response.status(Response.Status.BAD_REQUEST).entity(responseIfEmpty).type(MediaType.APPLICATION_JSON).build());
+                throw new ListEmptyException("{\"List is empty or null\"}");
             }
             return Response.ok(foundStudents).build();
     }

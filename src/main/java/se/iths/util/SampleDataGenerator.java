@@ -32,17 +32,29 @@ public class SampleDataGenerator {
         Subject subject4 = new Subject("Java");
         Subject subject5 = new Subject("English");
 
-/*        subject1.addTeacher
-        subject2.addTeacher
+        teacher1.addSubject(subject1);
+        teacher1.addSubject(subject2);
+        teacher1.addSubject(subject3);
 
-        subject1.addStudent
-        subject2.addStudent
-        subject2.addStudent
-        subject3.addStudent
-        subject4.addStudent
-        subject4.addStudent
-        subject5.addStudent*/
+        teacher2.addSubject(subject4);
+        teacher2.addSubject(subject5);
 
+        student1.addSubject(subject1);
+        student1.addSubject(subject2);
 
+        student2.addSubject(subject2);
+        student2.addSubject(subject3);
+        student2.addSubject(subject4);
+
+        student3.addSubject(subject1);
+        student3.addSubject(subject2);
+        student3.addSubject(subject5);
+
+        entityManager.persist(teacher1);
+        entityManager.persist(teacher2);
+
+        entityManager.persist(student1);
+        entityManager.persist(student2);
+        entityManager.persist(student3);
     }
 }

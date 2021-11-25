@@ -17,7 +17,7 @@ public class Subject {
     @NotNull
     private String subjectname;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     private List<Student> students = new ArrayList<>();
 
     @ManyToOne
@@ -29,6 +29,22 @@ public class Subject {
     }
 
     public Subject(){
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 
     public Long getSubject_id() {

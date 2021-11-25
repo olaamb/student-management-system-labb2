@@ -39,6 +39,11 @@ public class Student {
     public Student() {
     }
 
+    public void addSubject(Subject subject){
+    subjects.add(subject);
+    subject.getStudents().add(this);
+    }
+
     public Long getId() {
         return id;
     }

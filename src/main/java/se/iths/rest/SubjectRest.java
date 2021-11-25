@@ -44,7 +44,7 @@ public class SubjectRest {
     @Path("query")
     @GET
     public Response getAllStudentsInSubject(@QueryParam("subjectname") String subjectname) {
-        String responseIfEmpty = "{\"Error\": \"No student with that last name was found.\"}";
+        String responseIfEmpty = "{\"Error\": \"No subject with that name was found.\"}";
         List<Subject> foundSubjects = subjectService.getSubjectBySubjectName(subjectname);
         if (foundSubjects == null || foundSubjects.isEmpty()) {
             throw new WebApplicationException(Response.status(Response.Status.BAD_REQUEST).entity(responseIfEmpty).type(MediaType.APPLICATION_JSON).build());

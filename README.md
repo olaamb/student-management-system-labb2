@@ -2,7 +2,12 @@
 Lab assignment in school
 
 
-STUDENT-MANAGEMENT-SYSTEM SCHOOL PROJECT
+STUDENT-MANAGEMENT-SYSTEM SCHOOL PROJECT - LAB 2
+
+LAB 2 ENDPOINT - 
+http://localhost:8080/student-management-system/api/v1/subjects/query
+
+Pregenerated subjects are Math, Geography, Swedish, Java, English. So for example how to get all students and teacher for Geography, type http://localhost:8080/student-management-system/api/v1/subjects/query?subjectname=Geography
 
 ENDPOINTS:
 
